@@ -19,7 +19,7 @@ jobs:
           token: ${{ secrets.PRIVATE_REPO_TOKEN }}
           sparse-checkout: |
             FACEBOOK/
-            VIDEO_EDITING_WATERMARK/
+            VIDEO_EDITING_QUALITY/
             counter.txt
             requirements.txt
           fetch-depth: 1
