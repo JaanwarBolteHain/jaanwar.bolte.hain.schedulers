@@ -3,11 +3,11 @@ name: VIDEO EDITING COMBINED (WITH COUNTER)
 on:
   workflow_dispatch:
   schedule:
-    # - cron: '30 18 * * *'   # 12:00 AM IST (6:30 PM UTC previous day)
-    - cron: '30 22 * * *'   # 4:00 AM IST (10:30 PM UTC previous day)
-    # - cron: '30 2 * * *'    # 8:00 AM IST (2:30 AM UTC)
-    - cron: '30 6 * * *'    # 12:00 PM IST (6:30 AM UTC)
-    # - cron: '30 10 * * *'   # 4:00 PM IST (10:30 AM UTC)
+    - cron: '30 18 * * *'   # 12:00 AM IST (6:30 PM UTC previous day)
+    # - cron: '30 22 * * *'   # 4:00 AM IST (10:30 PM UTC previous day)
+    - cron: '30 2 * * *'    # 8:00 AM IST (2:30 AM UTC)
+    # - cron: '30 6 * * *'    # 12:00 PM IST (6:30 AM UTC)
+    - cron: '30 10 * * *'   # 4:00 PM IST (10:30 AM UTC)
 
 jobs:
   update-counter:
@@ -64,7 +64,8 @@ jobs:
           token: ${{ secrets.PRIVATE_REPO_TOKEN }}
           sparse-checkout: |
             IPNBY/quality.ipynb
-            VIDEO_EDITING_QUALITY
+            VIDEO_EDITING_QUALITY/
+            AI_MODELS/
             counter_video_editing.txt
             video_end_tracker.txt
             requirements.txt
@@ -145,6 +146,7 @@ jobs:
           mkdir -p kaggle-dataset
           cp -r REELS kaggle-dataset/ || true
           cp -r VIDEO_EDITING_QUALITY kaggle-dataset/ || true
+          cp -r AI_MODELS kaggle-dataset/ || true
           cp counter_video_editing.txt kaggle-dataset/ || true
           cp video_end_tracker.txt kaggle-dataset/ || true
           cp requirements.txt kaggle-dataset/ || true
