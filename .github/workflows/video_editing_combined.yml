@@ -231,7 +231,7 @@ jobs:
 
       # Push Notebook to Kaggle
       - name: Push Notebook to Kaggle
-        run: kaggle kernels push -p . --accelerator NvidiaTeslaT4
+        run: kaggle kernels push -p .
 
       # Wait for Kaggle Notebook to Finish
       - name: Wait for Kaggle Notebook to Finish
